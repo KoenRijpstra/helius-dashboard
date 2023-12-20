@@ -47,14 +47,16 @@ export function UserNav() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild className="cursor-pointer">
-          <Button
-            onClick={async () => {
-              await signOutAll()
+          <Link
+            href="/"
+            onClick={async (event) => {
+              event.preventDefault();
+              await signOutAll();
             }}
           >
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
-          </Button>
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Sidebar } from "@/components/sidebar";
-import { SessionProvider } from "next-auth/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,10 +26,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="flex flex-row items-stretch h-full">
-              <Sidebar />
-              <div className="flex flex-col flex-1 h-full pl-[200px]">{children}</div>
-            </div>
+            {children}
           </ThemeProvider>
         </body>
       </html>
