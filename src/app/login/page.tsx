@@ -1,15 +1,14 @@
-import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
+import { Metadata } from "next";
+import Link from "next/link";
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import { UserAuthForm } from "@/components/user-auth-form"
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { AuthGithub } from "@/components/auth-github";
 
 export const metadata: Metadata = {
   title: "Authentication",
   description: "Authentication forms built using the components.",
-}
+};
 
 export default function AuthenticationPage() {
   return (
@@ -44,9 +43,8 @@ export default function AuthenticationPage() {
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
               <p className="text-lg">
-                &ldquo;Helius has saved me countless hours of work and
-                helped me build faster and better than
-                ever before.&rdquo;
+                &ldquo;Helius has saved me countless hours of work and helped me
+                build faster and better than ever before.&rdquo;
               </p>
               <footer className="text-sm">John Do</footer>
             </blockquote>
@@ -59,9 +57,9 @@ export default function AuthenticationPage() {
                 Sign in to your account
               </h1>
             </div>
-            <UserAuthForm />
+            <AuthGithub />
             <p className="px-8 text-center text-sm text-muted-foreground">
-              By clicking continue, you agree to our{" "}
+              By continuing, you agree to our{" "}
               <Link
                 href="/terms"
                 className="underline underline-offset-4 hover:text-primary"
@@ -81,5 +79,5 @@ export default function AuthenticationPage() {
         </div>
       </div>
     </>
-  )
+  );
 }

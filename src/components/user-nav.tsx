@@ -13,6 +13,8 @@ import {
 import { User, LogOut } from "lucide-react";
 import Link from "next/link";
 
+import { signOut } from "@/lib/actions";
+
 export function UserNav() {
   return (
     <DropdownMenu>
@@ -43,10 +45,14 @@ export function UserNav() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild className="cursor-pointer">
-          <Link href="/logout">
+          <Button
+            onClick={() => {
+              signOut();
+            }}
+          >
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
-          </Link>
+          </Button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

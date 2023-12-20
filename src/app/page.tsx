@@ -14,6 +14,7 @@ import Link from "next/link";
 import { ChartRequestHealth } from "@/components/chart-request-health";
 import { ChartUsageBreakdown } from "@/components/chart-usage-breakdown";
 import { ArrowRight } from "lucide-react";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: "Home - Helius",
@@ -23,11 +24,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+
   return (
     <div>
       <div className="py-3 mt-10 w-full text-center">
-        <h1 className="text-4xl font-bold">Good Morning, Koen Rijpstra</h1>
+        <h1 className="text-4xl font-bold">Good Morning, {session?.user?.name}</h1>
       </div>
       <div className="px-8 mt-3 w-full">
         <h2 className="text-3xl font-bold">My projects</h2>

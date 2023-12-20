@@ -1,28 +1,22 @@
-import NextAuth from "next-auth";
-import { authConfig } from "@/auth.config";
-import Credentials from "next-auth/providers/credentials";
+import NextAuth from "next-auth"
+import GitHub from "next-auth/providers/github"
 
-export const { auth, signIn, signOut } = NextAuth({
-  ...authConfig,
+import type { NextAuthConfig } from "next-auth"
+
+export const config = {
+  pages: {
+    signIn: "/login",
+  },
   providers: [
-    Credentials({
-      async authorize(credentials) {
-        if (
-          credentials.username === "admin" &&
-          credentials.password === "admin"
-        ) {
-          // For demo
-          const user = {
-            id: "1",
-            name: "Koen Rijpstra",
-            email: "my@email.com",
-          };
-
-          return user;
-        }
-
-        return null;
-      },
-    }),
+    GitHub,
   ],
-});
+  callbacks: {
+    authorized({ request, auth }) {
+      const { pathname } = request.nextUrl
+      if (pathname !== "/login") return !!auth
+      return true
+    },
+  },
+} satisfies NextAuthConfig
+
+export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(config)
