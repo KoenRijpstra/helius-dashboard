@@ -1,4 +1,4 @@
-type IconProps = React.HTMLAttributes<SVGElement>
+type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
   logo: (props: IconProps) => (
@@ -129,6 +129,62 @@ export const Icons = {
       />
     </svg>
   ),
+  solana: (props: IconProps) => (
+    <svg role="img" fill="none" viewBox="0 0 24 19" {...props}>
+      <g clipPath="url(#a)">
+        <path
+          fill="url(#b)"
+          d="M3.898 14.357a.785.785 0 0 1 .556-.23h19.154c.35 0 .525.423.277.67l-3.783 3.784a.785.785 0 0 1-.556.23H.392a.392.392 0 0 1-.277-.67l3.783-3.784Z"
+        />
+        <path
+          fill="url(#c)"
+          d="M3.898.23c.151-.146.35-.23.556-.23h19.154c.35 0 .525.422.277.67l-3.783 3.784a.785.785 0 0 1-.556.229H.392a.392.392 0 0 1-.277-.67L3.898.23Z"
+        />
+        <path
+          fill="url(#d)"
+          d="M20.102 7.248a.785.785 0 0 0-.556-.23H.392a.392.392 0 0 0-.277.67l3.783 3.784c.145.145.344.23.556.23h19.154c.35 0 .525-.423.277-.67l-3.783-3.784Z"
+        />
+      </g>
+      <defs>
+        <linearGradient
+          id="b"
+          x1="21.778"
+          x2="8.522"
+          y1="-2.26"
+          y2="23.131"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#00FFA3" />
+          <stop offset="1" stopColor="#DC1FFF" />
+        </linearGradient>
+        <linearGradient
+          id="c"
+          x1="15.982"
+          x2="2.725"
+          y1="-5.286"
+          y2="20.104"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#00FFA3" />
+          <stop offset="1" stopColor="#DC1FFF" />
+        </linearGradient>
+        <linearGradient
+          id="d"
+          x1="18.861"
+          x2="5.605"
+          y1="-3.783"
+          y2="21.608"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#00FFA3" />
+          <stop offset="1" stopColor="#DC1FFF" />
+        </linearGradient>
+        <clipPath id="a">
+          <path fill="white" d="M0 0h24v18.81H0z" />
+        </clipPath>
+      </defs>
+    </svg>
+  ),
   spinner: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -145,4 +201,4 @@ export const Icons = {
       <path d="M21 12a9 9 0 1 1-6.219-8.56" />
     </svg>
   ),
-}
+};

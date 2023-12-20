@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+// If loading a variable font, you don't need to specify the font weight
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,14 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en" className="h-full" suppressHydrationWarning>
+      <html lang="en" className={`h-full ${outfit.className}`} suppressHydrationWarning>
         <head />
         <body className="h-full">
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+            defaultTheme="dark"
           >
             {children}
           </ThemeProvider>

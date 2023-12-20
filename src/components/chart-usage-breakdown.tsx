@@ -102,7 +102,7 @@ export function ChartUsageBreakdown() {
               }}
             >
               <Tooltip
-                cursor={{ fill:"rgba(57, 29, 24, 0.7)" }}
+                cursor={{ fill: "hsl(var(--accent))" }}
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     return (
@@ -159,14 +159,27 @@ export function ChartUsageBreakdown() {
                 wrapperStyle={{ fontSize: "12px" }}
                 height={36}
               />
-              <Bar type="monotone" dataKey="RPC" name="RPC" fill="#f50" />
+              <Bar
+                type="monotone"
+                dataKey="RPC"
+                name="RPC"
+                fill="#e60049"
+                barSize={24}
+              />
               <Bar
                 type="monotone"
                 dataKey="webhook"
                 name="Webhook"
-                fill="#e025bb "
+                fill="#0bb4ff"
+                barSize={24}
               />
-              <Bar type="monotone" dataKey="DAS" name="DAS" fill="#ff9d00" />
+              <Bar
+                type="monotone"
+                dataKey="DAS"
+                name="DAS"
+                fill="#00bfa0"
+                barSize={24}
+              />
               <XAxis
                 dataKey="name"
                 axisLine={false}

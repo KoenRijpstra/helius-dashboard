@@ -129,16 +129,6 @@ export function ChartRequestHealth() {
                   return null;
                 }}
               />
-              <defs>
-                <linearGradient id="colorSuccesful" x1="0" y1="0" x2="0" y2="1" >
-                  <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.4} />
-                  <stop offset="60%" stopColor="#14b8a6" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="colorFailed" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#b91c1c" stopOpacity={0.4} />
-                  <stop offset="60%" stopColor="#b91c1c" stopOpacity={0} />
-                </linearGradient>
-              </defs>
               <Legend
                 verticalAlign="top"
                 align="left"
@@ -153,12 +143,12 @@ export function ChartRequestHealth() {
                 name="Succesful"
                 activeDot={{
                   r: 6,
-                  style: { fill: "#14b8a6", opacity: 0.25 },
+                  style: { fill: "#00bfa0", opacity: 0.25 },
                 }}
-                fill="url(#colorSuccesful)"
-                stroke="#14b8a6"
-                strokeWidth={2}
-                strokeOpacity={0.6}
+                fill="none"
+                stroke="#00bfa0"
+                strokeWidth={1}
+                strokeOpacity={1}
               />
               <Area
                 type="monotone"
@@ -166,12 +156,12 @@ export function ChartRequestHealth() {
                 name="Failed"
                 activeDot={{
                   r: 6,
-                  style: { fill: "#b91c1c", opacity: 0.25 },
+                  style: { fill: "#e60049", opacity: 0.25 },
                 }}
-                fill="url(#colorFailed)"
-                stroke="#b91c1c"
-                strokeWidth={2}
-                strokeOpacity={0.6}
+                fill="none"
+                stroke="#e60049"
+                strokeWidth={1}
+                strokeOpacity={1}
               />
               <XAxis
                 dataKey="name"

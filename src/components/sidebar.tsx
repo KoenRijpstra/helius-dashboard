@@ -58,21 +58,15 @@ export function Sidebar() {
       href: "https://docs.helius.dev",
       icon: <Book className="mr-3 h-4 w-4" />,
     },
-    {
-        id: "help",
-        label: "Help",
-        href: "https://docs.helius.dev",
-        icon: <LifeBuoy className="mr-3 h-4 w-4" />,
-      },
   ];
 
   return (
     <aside
-      className="flex flex-col fixed min-w-[200px] h-full py-4 px-3 z-50 border-r"
+      className="flex flex-col fixed min-w-[200px] h-full py-4 px-3 z-50 border-r bg-[#010409]"
       aria-label="Sidebar"
     >
       <Link className="mb-6 ml-1" href="/">
-        <Image src="/helius.png" alt="Helius logo" width={150} height={32} priority={true} />
+        <Image src="/images/helius-logo.png" alt="Helius logo" width={150} height={32} priority={true} />
       </Link>
 
       <ul className="space-y-1">
@@ -83,7 +77,7 @@ export function Sidebar() {
               size="sm"
               className={cn(
                 "w-full justify-start pl-2",
-                pathname === item.href ? "text-primary" : "text-foreground/70"
+                pathname === item.href ? "text-primary" : "text-foreground/80"
               )}
               asChild
             >
@@ -104,7 +98,7 @@ export function Sidebar() {
                 size="sm"
                 className={cn(
                     "w-full justify-start pl-2",
-                    pathname === item.href ? "text-primary" : "text-foreground/70"
+                    pathname === item.href ? "text-primary" : "text-foreground/80"
                 )}
                 asChild
                 >

@@ -33,7 +33,7 @@ export default async function Home() {
         <h1 className="text-4xl font-bold">Good Morning, {session?.user?.name}</h1>
       </div>
       <div className="px-8 mt-3 w-full">
-        <h2 className="text-3xl font-bold">My projects</h2>
+        <h2 className="text-3xl font-bold">Projects</h2>
       </div>
       <div className="md:grids-col-2 grid md:gap-4 lg:grid-cols-10 xl:grid-cols-12 xl:gap-8 px-8 py-6">
         <div className="space-y-4 lg:col-span-4 xl:col-span-3 xl:space-y-4">
