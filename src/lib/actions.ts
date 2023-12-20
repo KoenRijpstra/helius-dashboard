@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 
 export async function signInGitHub() {
@@ -19,6 +19,6 @@ export async function signInGitHub() {
   }
 }
 
-export async function signOut() {
+export async function signOutAll() {
   await signOut();
 }

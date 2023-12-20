@@ -1,3 +1,5 @@
+"user client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +15,7 @@ import {
 import { User, LogOut } from "lucide-react";
 import Link from "next/link";
 
-import { signOut } from "@/lib/actions";
+import { signOutAll } from "@/lib/actions";
 
 export function UserNav() {
   return (
@@ -46,8 +48,8 @@ export function UserNav() {
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild className="cursor-pointer">
           <Button
-            onClick={() => {
-              signOut();
+            onClick={async () => {
+              await signOutAll()
             }}
           >
             <LogOut className="mr-2 h-4 w-4" />
