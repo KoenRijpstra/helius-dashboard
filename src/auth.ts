@@ -17,6 +17,7 @@ export const config = {
       return true
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
 } satisfies NextAuthConfig
 
 export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(config)
