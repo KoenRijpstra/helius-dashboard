@@ -13,7 +13,7 @@ export const config = {
   callbacks: {
     authorized({ request, auth }) {
       const { pathname } = request.nextUrl
-      if (pathname !== "/login") return !!auth
+      if (pathname === "/") return !!auth
       return true
     },
   },
