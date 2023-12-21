@@ -9,6 +9,9 @@ import { Tweet } from "react-tweet";
 export const metadata: Metadata = {
   title: "Authentication",
   description: "Authentication forms built using the components.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function AuthenticationPage() {
