@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { AuthGithub } from "@/components/auth-github";
+import { AuthGoogle } from "@/components/auth-google";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
@@ -44,10 +45,7 @@ export default function AuthenticationPage() {
               <span className="px-2 text-muted-foreground">Or</span>
             </div>
           </div>
-          <Button variant="outline" type="button">
-            <Icons.google className="mr-2 h-4 w-4" />
-            Sign In with Google
-          </Button>
+          <AuthGoogle />
           <AuthGithub />
           <p className="px-8 text-center text-sm text-muted-foreground">
             By signing in, you agree to our{" "}

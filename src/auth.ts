@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
-import GitHub from "next-auth/providers/github"
+import GitHub from "@auth/core/providers/github"
+import Google from "@auth/core/providers/google"
 
 import type { NextAuthConfig } from "next-auth"
 
@@ -9,6 +10,7 @@ export const config = {
   },
   providers: [
     GitHub,
+    Google,
   ],
   callbacks: {
     authorized({ request, auth }) {
