@@ -3,7 +3,6 @@ import GitHub from "@auth/core/providers/github";
 import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
 import type { NextAuthConfig } from "next-auth";
-import { getCsrfToken } from "next-auth/react";
 import {
   parseSignInMessageText,
   createSignInMessage,
