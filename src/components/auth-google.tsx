@@ -2,19 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
-import { signInGoogle } from "@/lib/actions";
-import { useSearchParams } from 'next/navigation'
+import { signInGoogle } from "@/actions/signin";
+import { useSearchParams } from "next/navigation";
 
 export function AuthGoogle() {
+  const searchParams = useSearchParams();
 
-  const searchParams = useSearchParams()
-  
   return (
     <Button
       variant="outline"
       type="button"
       onClick={() => {
-        signInGoogle(searchParams.get('callbackUrl'));
+        signInGoogle(searchParams.get("callbackUrl"));
       }}
     >
       <Icons.gitHub className="mr-2 h-4 w-4" />

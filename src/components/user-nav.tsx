@@ -15,7 +15,7 @@ import {
 import { User, LogOut } from "lucide-react";
 import Link from "next/link";
 
-import { signOutAll } from "@/lib/actions";
+import { signOutAll } from "@/actions/signin";
 
 export function UserNav() {
   return (

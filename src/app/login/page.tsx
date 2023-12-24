@@ -2,9 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { AuthGithub } from "@/components/auth-github";
 import { AuthGoogle } from "@/components/auth-google";
+import { AuthSolana } from "@/components/auth-solana";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Icons } from "@/components/icons";
 import { Tweet } from "react-tweet";
 
 export const metadata: Metadata = {
@@ -33,10 +32,7 @@ export default function AuthenticationPage() {
               Sign in to Helius
             </h1>
           </div>
-          <Button variant="outline" type="button">
-            <Icons.solana className="mr-2 h-4 w-4" />
-            Sign In with Solana
-          </Button>
+          <AuthSolana />
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t" />
