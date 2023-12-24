@@ -6,7 +6,7 @@ import { useSession, getCsrfToken } from "next-auth/react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";\
+import { useSearchParams } from "next/navigation";
 import { createSignInMessageText } from "@solana/wallet-standard-util";
 import { encode } from "bs58";
 import { signInSolana } from "@/actions/signin";
