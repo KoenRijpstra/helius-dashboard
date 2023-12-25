@@ -10,6 +10,8 @@ import {
 import { ed25519 } from "@noble/curves/ed25519";
 import { decode } from "bs58";
 
+import parseUrl from "@/utils/parse-url";
+
 export const config = {
   pages: {
     signIn: "/login",
@@ -32,11 +34,9 @@ export const config = {
           const message = parseSignInMessageText(
             JSON.parse((credentials?.message as string) || "{}")
           );
-
-          console.log("VERCEL_URL",process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
-
-          const nextAuthUrl = new URL(process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
           
+          const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
+
           if (message?.domain !== nextAuthUrl.host) {
             return null;
           }
