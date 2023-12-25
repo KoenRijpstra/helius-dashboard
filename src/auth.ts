@@ -62,6 +62,7 @@ export const config = {
             name: message.address,
           });
         } catch (e) {
+          console.log(e);
           return null;
         }
       },
