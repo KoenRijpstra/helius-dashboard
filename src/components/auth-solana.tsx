@@ -11,6 +11,11 @@ import { createSignInMessageText } from "@solana/wallet-standard-util";
 import { encode } from "bs58";
 import { signInSolana } from "@/actions/signin";
 
+// TODO Remove NextAuth V5 fix: https://github.com/nextauthjs/next-auth/discussions/8487#discussioncomment-7901079
+declare module "next-auth/react" {
+  function getCsrfToken(): Promise<string >
+}
+
 export function AuthSolana() {
   const { data: session, status } = useSession();
   const loading = status === "loading";
