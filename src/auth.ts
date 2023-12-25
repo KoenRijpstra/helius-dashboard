@@ -31,27 +31,11 @@ export const config = {
       },
       async authorize(credentials) {
         try {
-          console.log("credentials", credentials);
-
-          console.log("credentials?.message", credentials?.message);
-
-          console.log("(credentials?.message as string)", (credentials?.message as string));
-
-          const preParsed = JSON.parse((credentials?.message as string) || "{}");
-
-          console.log("preParsed", preParsed);
-
           const message = parseSignInMessageText(
-            preParsed
+            JSON.parse((credentials?.message as string) || "{}")
           );
-
-          console.log("message", message);
-
-          const nextAuthUrl = parseUrl(
-            process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!
-          );
-
-          console.log("nextAuthUrl", nextAuthUrl);
+                    
+          const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
 
           if (message?.domain !== nextAuthUrl.host) {
             return null;
