@@ -35,6 +35,8 @@ export const config = {
 
           const nextAuthUrl = new URL(process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
 
+          console.log("nextAuthUrl",nextAuthUrl);
+
           if (message?.domain !== nextAuthUrl.host) {
             return null;
           }
