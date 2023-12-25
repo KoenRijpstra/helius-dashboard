@@ -35,7 +35,11 @@ export const config = {
             JSON.parse((credentials?.message as string) || "{}")
           );
           
+          console.log("message",message);
+
           const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
+
+          console.log("nextAuthUrl",nextAuthUrl);
 
           if (message?.domain !== nextAuthUrl.host) {
             return null;
