@@ -33,6 +33,8 @@ export const config = {
             JSON.parse((credentials?.message as string) || "{}")
           );
 
+          console.log("NEXTAUTH_URL",process.env.NEXTAUTH_URL);
+
           const nextAuthUrl = new URL(process.env.NEXTAUTH_URL!);
 
           if (message?.domain !== nextAuthUrl.host) {
