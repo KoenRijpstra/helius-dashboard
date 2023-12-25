@@ -34,6 +34,8 @@ export const config = {
           const message = parseSignInMessageText(
             JSON.parse((credentials?.message as string) || "{}")
           );
+
+          console.log("message",message);
                     
           const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
 
