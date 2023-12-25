@@ -33,8 +33,16 @@ export const config = {
         try {
           console.log("credentials", credentials);
 
+          console.log("credentials?.message", credentials?.message);
+
+          console.log("(credentials?.message as string)", (credentials?.message as string));
+
+          const preParsed = JSON.parse((credentials?.message as string) || "{}");
+
+          console.log("preParsed", preParsed);
+
           const message = parseSignInMessageText(
-            JSON.parse((credentials?.message as string) || "{}")
+            preParsed
           );
 
           console.log("message", message);
