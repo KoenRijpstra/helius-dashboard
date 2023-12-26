@@ -38,6 +38,10 @@ export const config = {
           );
 
           console.log("message",message);
+
+          console.log("process.env.NEXTAUTH_URL",process.env.NEXTAUTH_URL);
+
+          console.log("process.env.VERCEL_URL",process.env.VERCEL_URL);
                     
           const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL);
 
