@@ -22,6 +22,7 @@ const MESSAGE = new RegExp(`^${DOMAIN}${ADDRESS}${STATEMENT}${FIELDS}\\n*$`);
  * TODO: docs
  */
 export function parseSignInMessageText(text: string): SolanaSignInInputWithRequiredFields | null {
+    console.log("text",text);
     const match = MESSAGE.exec(text);
     console.log("match",match);
     if (!match) return null;
