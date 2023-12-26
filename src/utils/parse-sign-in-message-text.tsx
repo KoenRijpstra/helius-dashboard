@@ -24,14 +24,14 @@ const MESSAGE = new RegExp(`^${DOMAIN}${ADDRESS}${STATEMENT}${FIELDS}\\n*$`);
 export function parseSignInMessageText(text: string): SolanaSignInInputWithRequiredFields | null {
     console.log("parseSignInMessageText",text);
     const match = MESSAGE.exec(text);
-    // console.log("match",match);
+    console.log("match",match);
     if (!match) return null;
     const groups = match.groups;
-    // console.log("groups",groups);
+    console.log("groups",groups);
     if (!groups) return null;
 
-    // console.log("groups.domain",!groups.domain);
-    // console.log("groups.address",!groups.address);
+    console.log("groups.domain",groups.domain);
+    console.log("groups.address",groups.address);
     // domain and address are required fields
     if(!groups.domain || !groups.address) return null;
     
