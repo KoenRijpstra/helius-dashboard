@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { WalletAdapterProvider } from "@/components/wallet-adapter-provider";
 import { SessionProvider } from "next-auth/react";
+import { Toaster } from "@/components/ui/sonner";
 
 // If loading a variable font, you don't need to specify the font weight
 const outfit = Outfit({
@@ -15,9 +16,24 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Helius",
   description: "",
-  icons: {
-    icon: "/favicon.png",
-  },
+  icons: [
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "/favicon/favicon-32x32.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "512x512",
+      url: "/favicon/favicon-512x512.png",
+    },
+    {
+      rel: "apple-touch-icon",
+      url: "/favicon/favicon-512x512.png",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -38,6 +54,7 @@ export default function RootLayout({
             <SessionProvider>
               <WalletAdapterProvider>{children}</WalletAdapterProvider>
             </SessionProvider>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

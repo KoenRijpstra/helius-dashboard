@@ -7,8 +7,8 @@ import { createSignInMessage } from "@solana/wallet-standard-util";
 import { parseSignInMessageText } from "@/utils/parse-sign-in-message-text";
 import { ed25519 } from "@noble/curves/ed25519";
 import { decode } from "bs58";
-
 import parseUrl from "@/utils/parse-url";
+import { cookies } from "next/headers";
 
 export const config = {
   pages: {
@@ -27,7 +27,7 @@ export const config = {
           type: "text",
         },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         try {
           const message = parseSignInMessageText(
             JSON.parse((credentials?.message as string) || "{}")
@@ -37,27 +37,46 @@ export const config = {
             process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL
           );
 
+          // Verify the domain
           if (message?.domain !== nextAuthUrl.host) {
-            return null;
+            throw new Error(
+              "Domain does not match provided domain for verification."
+            );
           }
 
-          // TODO NextAuth V5 fix: https://github.com/nextauthjs/next-auth/discussions/8487#discussioncomment-7901079
-          // const csrfToken = await getCsrfToken();
+          // TODO Use getCsrfToken instead of cookies when fixed NextAuth V5: https://github.com/nextauthjs/next-auth/discussions/8487#discussioncomment-7901079
+          const csrfToken = cookies()
+            .get("authjs.csrf-token")
+            ?.value.split("|")[0];
 
-          // console.log("csrfToken", message.nonce, csrfToken);
+          // Verify the nonce
+          if (message.nonce !== csrfToken) {
+            throw new Error(
+              "Nonce does not match provided nonce for verification."
+            );
+          }
 
-          // if (signinMessage.nonce !== csrfToken) {
-          //   return null;
-          // }
+          // Check time or now
+          const checkTime = new Date(new Date());
 
+          // Verify the expiration time
+          if (message?.expirationTime) {
+            const expirationDate = new Date(message?.expirationTime);
+            if (checkTime.getTime() >= expirationDate.getTime()) {
+              throw new Error("Expired message.");
+            }
+          }
+
+          // Verify the signature
           const verified = ed25519.verify(
             decode(credentials?.signature as string),
             createSignInMessage(message),
             decode(message.address)
           );
 
-          if (!verified)
-            throw new Error("Could not validate the signed message");
+          if (!verified) {
+            throw new Error("Signature does not match address of the message.");
+          }
 
           return Promise.resolve({
             id: message.address,

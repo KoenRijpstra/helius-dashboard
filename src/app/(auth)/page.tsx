@@ -19,9 +19,6 @@ import { auth } from "@/auth";
 export const metadata: Metadata = {
   title: "Home - Helius",
   description: "",
-  icons: {
-    icon: "/favicon.png",
-  },
 };
 
 export default async function Home() {
@@ -30,7 +27,9 @@ export default async function Home() {
   return (
     <div>
       <div className="py-3 mt-10 w-full text-center">
-        <h1 className="text-4xl font-bold">Good Morning, {session?.user?.name}</h1>
+        <h1 className="text-4xl font-bold">
+          Good Morning, {session?.user?.name}
+        </h1>
       </div>
       <div className="px-8 mt-3 w-full">
         <h2 className="text-3xl font-bold">Projects</h2>

@@ -4,16 +4,18 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { useSession, getCsrfToken } from "next-auth/react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
-import { useWallet } from "@solana/wallet-adapter-react";
+import { useWallet, useConnection } from "@solana/wallet-adapter-react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { createSignInMessageText } from "@solana/wallet-standard-util";
 import { encode } from "bs58";
 import { signInSolana } from "@/actions/signin";
+import { toast } from "sonner";
+import { WalletSignMessageError } from "@solana/wallet-adapter-base";
 
 // TODO Remove NextAuth V5 fix: https://github.com/nextauthjs/next-auth/discussions/8487#discussioncomment-7901079
 declare module "next-auth/react" {
-  function getCsrfToken(): Promise<string >
+  function getCsrfToken(): Promise<string>;
 }
 
 export function AuthSolana() {
@@ -53,8 +55,10 @@ export function AuthSolana() {
         searchParams.get("callbackUrl")
       );
     } catch (error) {
-      // TODO display message as toast
-      window.alert(error)
+      console.log("error", error);
+      if (error instanceof WalletSignMessageError) {
+        toast.error("Message signing failed");
+      }
     }
   };
 

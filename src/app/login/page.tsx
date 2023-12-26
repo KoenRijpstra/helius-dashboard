@@ -9,9 +9,6 @@ import { Tweet } from "react-tweet";
 export const metadata: Metadata = {
   title: "Authentication",
   description: "Authentication forms built using the components.",
-  icons: {
-    icon: "/favicon.png",
-  },
 };
 
 export default function AuthenticationPage() {
@@ -21,10 +18,10 @@ export default function AuthenticationPage() {
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center">
             <Image
-              src="/favicon.png"
+              src="/favicon/favicon-512x512.png"
               alt="Helius logo"
-              width={64}
-              height={64}
+              width={96}
+              height={96}
             />
           </div>
           <div className="flex flex-col space-y-2 text-center">
