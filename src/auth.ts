@@ -4,9 +4,9 @@ import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
 import type { NextAuthConfig } from "next-auth";
 import {
-  parseSignInMessageText,
   createSignInMessage,
 } from "@solana/wallet-standard-util";
+import { parseSignInMessageText } from "@/utils/parse-sign-in-message-text"
 import { ed25519 } from "@noble/curves/ed25519";
 import { decode } from "bs58";
 
