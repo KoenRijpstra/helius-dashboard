@@ -31,6 +31,12 @@ export const config = {
       },
       async authorize(credentials) {
         try {
+          console.log("credentials",credentials);
+
+          console.log("credentials?.message",credentials?.message);
+
+          console.log("(credentials?.message as string)",(credentials?.message as string));
+
           const message = parseSignInMessageText(
             JSON.parse((credentials?.message as string) || "{}")
           );
