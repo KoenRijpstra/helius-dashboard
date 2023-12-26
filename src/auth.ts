@@ -37,7 +37,7 @@ export const config = {
 
           console.log("message",message);
                     
-          const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL! ?? process.env.VERCEL_URL!);
+          const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL);
 
           if (message?.domain !== nextAuthUrl.host) {
             return null;

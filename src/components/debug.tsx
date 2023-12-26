@@ -29,11 +29,11 @@ function parseSignInMessageText(text: string): SolanaSignInInputWithRequiredFiel
     const groups = match.groups;
     if (!groups) return null;
 
+    if(!groups.domain || !groups.address) return null;
+    
     return {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        domain: groups.domain!,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        address: groups.address!,
+        domain: groups.domain,
+        address: groups.address,
         statement: groups.statement,
         uri: groups.uri,
         version: groups.version,
