@@ -5,7 +5,6 @@ import { AuthGoogle } from "@/components/auth-google";
 import { AuthSolana } from "@/components/auth-solana";
 import Image from "next/image";
 import { Tweet } from "react-tweet";
-import { Debug } from "@/components/debug"
 
 export const metadata: Metadata = {
   title: "Authentication",
@@ -33,7 +32,6 @@ export default function AuthenticationPage() {
               Sign in to Helius
             </h1>
           </div>
-          <Debug />
           <AuthSolana />
           <div className="relative">
             <div className="absolute inset-0 flex items-center">

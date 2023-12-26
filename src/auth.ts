@@ -3,10 +3,8 @@ import GitHub from "@auth/core/providers/github";
 import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
 import type { NextAuthConfig } from "next-auth";
-import {
-  createSignInMessage,
-} from "@solana/wallet-standard-util";
-import { parseSignInMessageText } from "@/utils/parse-sign-in-message-text"
+import { createSignInMessage } from "@solana/wallet-standard-util";
+import { parseSignInMessageText } from "@/utils/parse-sign-in-message-text";
 import { ed25519 } from "@noble/curves/ed25519";
 import { decode } from "bs58";
 
@@ -31,23 +29,13 @@ export const config = {
       },
       async authorize(credentials) {
         try {
-          console.log("credentials",credentials);
-
           const message = parseSignInMessageText(
             JSON.parse((credentials?.message as string) || "{}")
           );
 
-          console.log("message",message);
-
-          console.log("process.env.NEXTAUTH_URL",process.env.NEXTAUTH_URL);
-
-          console.log("process.env.VERCEL_URL",process.env.VERCEL_URL);
-                    
-          const nextAuthUrl = parseUrl(process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL);
-
-          console.log("message?.domain",message?.domain);
-
-          console.log("nextAuthUrl.host",nextAuthUrl.host);
+          const nextAuthUrl = parseUrl(
+            process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL
+          );
 
           if (message?.domain !== nextAuthUrl.host) {
             return null;
