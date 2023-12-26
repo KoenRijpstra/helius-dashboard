@@ -18,10 +18,10 @@ export default function AuthenticationPage() {
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center">
             <Image
-              src="/favicon/favicon-512x512.png"
+              src="/images/helius-logo-icon.png"
               alt="Helius logo"
-              width={96}
-              height={96}
+              width={64}
+              height={64}
             />
           </div>
           <div className="flex flex-col space-y-2 text-center">
