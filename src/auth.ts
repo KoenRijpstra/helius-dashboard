@@ -37,9 +37,6 @@ export const config = {
             process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL
           );
 
-          console.log("nextAuthUrl", nextAuthUrl);
-          console.log("message?.domain", message?.domain);
-
           // Verify the domain
           if (message?.domain !== nextAuthUrl.host) {
             throw new Error(
@@ -51,6 +48,9 @@ export const config = {
           const csrfToken = cookies()
             .get("authjs.csrf-token")
             ?.value.split("|")[0];
+
+          console.log("message.nonce", message.nonce);
+          console.log("csrfToken", csrfToken);
 
           // Verify the nonce
           if (message.nonce !== csrfToken) {
