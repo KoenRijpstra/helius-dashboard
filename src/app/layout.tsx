@@ -14,7 +14,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Helius",
+  title: "Dashboard – Helius",
   description: "",
   icons: [
     {

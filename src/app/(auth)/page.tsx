@@ -1,6 +1,3 @@
-import Image from "next/image";
-import type { Metadata } from "next";
-
 import {
   CardTitle,
   CardDescription,
@@ -15,11 +12,6 @@ import { ChartRequestHealth } from "@/components/chart-request-health";
 import { ChartUsageBreakdown } from "@/components/chart-usage-breakdown";
 import { ArrowRight } from "lucide-react";
 import { auth } from "@/auth";
-
-export const metadata: Metadata = {
-  title: "Home - Helius",
-  description: "",
-};
 
 export default async function Home() {
   const session = await auth();

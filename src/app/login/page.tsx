@@ -7,8 +7,26 @@ import Image from "next/image";
 import { Tweet } from "react-tweet";
 
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "Sign in to Helius - Helius",
+  description: "",
+  icons: [
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "/favicon/favicon-32x32.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "512x512",
+      url: "/favicon/favicon-512x512.png",
+    },
+    {
+      rel: "apple-touch-icon",
+      url: "/favicon/favicon-512x512.png",
+    },
+  ],
 };
 
 export default function AuthenticationPage() {
