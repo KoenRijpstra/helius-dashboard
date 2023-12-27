@@ -45,8 +45,9 @@ export const config = {
           }
 
           // TODO Use getCsrfToken instead of cookies when fixed NextAuth V5: https://github.com/nextauthjs/next-auth/discussions/8487#discussioncomment-7901079
+          const useSecureCookies = nextAuthUrl.protocol === "https:";
           const csrfToken = cookies()
-            .get("authjs.csrf-token")
+            .get(`${useSecureCookies ? "__Host-" : ""}authjs.csrf-token`)
             ?.value.split("|")[0];
 
           console.log("message.nonce", message.nonce);
