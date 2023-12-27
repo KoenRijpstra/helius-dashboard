@@ -37,6 +37,9 @@ export const config = {
             process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL
           );
 
+          console.log("nextAuthUrl", nextAuthUrl);
+          console.log("message?.domain", message?.domain);
+
           // Verify the domain
           if (message?.domain !== nextAuthUrl.host) {
             throw new Error(
