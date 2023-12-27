@@ -16,7 +16,7 @@ export function AuthGoogle() {
         signInGoogle(searchParams.get("callbackUrl"));
       }}
     >
-      <Icons.gitHub className="mr-2 h-4 w-4" />
+      <Icons.google className="mr-2 h-4 w-4" />
       Sign In with Google
     </Button>
   );
