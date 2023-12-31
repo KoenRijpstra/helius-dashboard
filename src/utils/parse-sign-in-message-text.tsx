@@ -1,6 +1,9 @@
+// I've copied the following from the @solana/wallet-standard due to issues with the nested literal template on Vercel production.
+// It appears that the problem may be related to SWC minification
+// Hopefully the next release 14.0.5 will fix the issue: https://github.com/vercel/next.js/releases/tag/v14.0.5-canary.2
+
 import { SolanaSignInInputWithRequiredFields } from "@solana/wallet-standard-util";
 
-// TODO: implement https://github.com/solana-labs/solana/blob/master/docs/src/proposals/off-chain-message-signing.md
 const DOMAIN =
   "(?<domain>[^\\n]+?) wants you to sign in with your Solana account:\\n";
 const ADDRESS = "(?<address>[^\\n]+)(?:\\n|$)";
@@ -14,8 +17,9 @@ const EXPIRATION_TIME = "(?:\\nExpiration Time: (?<expirationTime>[^\\n]+))?";
 const NOT_BEFORE = "(?:\\nNot Before: (?<notBefore>[^\\n]+))?";
 const REQUEST_ID = "(?:\\nRequest ID: (?<requestId>[^\\n]+))?";
 const RESOURCES = "(?:\\nResources:(?<resources>(?:\\n- [^\\n]+)*))?";
-const FIELDS = `${URI}${VERSION}${CHAIN_ID}${NONCE}${ISSUED_AT}${EXPIRATION_TIME}${NOT_BEFORE}${REQUEST_ID}${RESOURCES}`;
-const MESSAGE = new RegExp(`^${DOMAIN}${ADDRESS}${STATEMENT}${FIELDS}\\n*$`);
+const MESSAGE = new RegExp(
+  `^${DOMAIN}${ADDRESS}${STATEMENT}${URI}${VERSION}${CHAIN_ID}${NONCE}${ISSUED_AT}${EXPIRATION_TIME}${NOT_BEFORE}${REQUEST_ID}${RESOURCES}\\n*$`
+);
 
 /**
  * TODO: docs
@@ -23,7 +27,6 @@ const MESSAGE = new RegExp(`^${DOMAIN}${ADDRESS}${STATEMENT}${FIELDS}\\n*$`);
 export function parseSignInMessageText(
   text: string
 ): SolanaSignInInputWithRequiredFields | null {
-  console.log("RegExp", `^${DOMAIN}${ADDRESS}${STATEMENT}${FIELDS}\\n*$`);
   const match = MESSAGE.exec(text);
 
   if (!match) return null;
