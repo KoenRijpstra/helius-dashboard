@@ -9,24 +9,6 @@ import { Tweet } from "react-tweet";
 export const metadata: Metadata = {
   title: "Sign in to Helius - Helius",
   description: "",
-  icons: [
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "32x32",
-      url: "/favicon/favicon-32x32.png",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "512x512",
-      url: "/favicon/favicon-512x512.png",
-    },
-    {
-      rel: "apple-touch-icon",
-      url: "/favicon/favicon-512x512.png",
-    },
-  ],
 };
 
 export default function AuthenticationPage() {
@@ -40,6 +22,7 @@ export default function AuthenticationPage() {
               alt="Helius logo"
               width={64}
               height={64}
+              priority={true}
             />
           </div>
           <div className="flex flex-col space-y-2 text-center">
