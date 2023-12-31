@@ -66,7 +66,7 @@ export function AuthSolana() {
     if (wallet.connected && status === "unauthenticated") {
       handleSignIn();
     }
-  }, [wallet.connected]);
+  });
 
   return (
     <Button variant="outline" type="button" onClick={handleSignIn}>

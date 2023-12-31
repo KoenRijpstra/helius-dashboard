@@ -50,9 +50,6 @@ export const config = {
             .get(`${useSecureCookies ? "__Host-" : ""}authjs.csrf-token`)
             ?.value.split("|")[0];
 
-          console.log("message.nonce", message.nonce);
-          console.log("csrfToken", csrfToken);
-
           // Verify the nonce
           if (message.nonce !== csrfToken) {
             throw new Error(
